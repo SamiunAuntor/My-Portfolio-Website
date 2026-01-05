@@ -41,19 +41,23 @@
   
   /* Allow left alignment when explicitly set */
   .text-left p,
-  [class*="text-left"] p {
-    text-align: left;
+  [class*="text-left"] p,
+  p[class*="text-left"] {
+    text-align: left !important;
   }
   
   /* Allow center alignment when explicitly set on mobile - higher specificity */
-  p[class*="text-center"]:not([class*="md:text-justify"]),
-  p.text-center:not(.md\:text-justify) {
-    text-align: center !important;
+  /* Only apply center on mobile, allow responsive overrides on desktop */
+  @media (max-width: 767px) {
+    p[class*="text-center"]:not([class*="md:text-justify"]):not([class*="md:text-left"]),
+    p.text-center:not(.md\:text-justify):not(.md\:text-left) {
+      text-align: center !important;
+    }
   }
   
-  /* Allow justify alignment when explicitly set */
-  p[class*="text-justify"]:not([class*="md:text"]),
-  p.text-justify:not([class*="md:text"]) {
+  /* Allow justify alignment when explicitly set - applies to all devices */
+  p[class*="text-justify"],
+  p.text-justify {
     text-align: justify !important;
   }
   
@@ -62,19 +66,28 @@
     .text-left p {
       text-align: left;
     }
+    /* Allow responsive left alignment on desktop */
+    p[class*="md:text-left"],
+    p.md\:text-left {
+      text-align: left !important;
+    }
     /* Allow responsive justify on desktop - must override center */
     p[class*="md:text-justify"],
     p.md\:text-justify {
       text-align: justify !important;
     }
     /* Override section-container left alignment for centered/justified paragraphs */
-    .section-container p[class*="text-center"]:not([class*="md:text-justify"]),
-    .section-container p.text-center:not(.md\:text-justify) {
+    .section-container p[class*="text-center"]:not([class*="md:text-justify"]):not([class*="md:text-left"]),
+    .section-container p.text-center:not(.md\:text-justify):not(.md\:text-left) {
       text-align: center !important;
     }
     .section-container p[class*="md:text-justify"],
     .section-container p.md\:text-justify {
       text-align: justify !important;
+    }
+    .section-container p[class*="md:text-left"],
+    .section-container p.md\:text-left {
+      text-align: left !important;
     }
   }
   

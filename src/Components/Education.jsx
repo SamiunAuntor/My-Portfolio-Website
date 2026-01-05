@@ -62,7 +62,7 @@ const Education = () => {
                                 {/* Education Card */}
                                 <div
                                     className={`w-full md:w-5/12 ${
-                                        index % 2 === 0 ? "text-center md:text-right" : "text-center md:text-left"
+                                        index % 2 === 0 ? "md:text-right" : "md:text-left"
                                     }`}
                                 >
                                     <motion.div
@@ -77,7 +77,7 @@ const Education = () => {
                                                 : "md:border-l-4"
                                         }`}
                                     >
-                                        <div className="flex items-center gap-3 mb-3 justify-center md:justify-start">
+                                        <div className="flex items-center gap-3 mb-3 justify-start">
                                             <div
                                                 className={`w-12 h-12 rounded-full flex items-center justify-center ${
                                                     edu.status === "completed"
@@ -93,14 +93,14 @@ const Education = () => {
                                                     }`}
                                                 />
                                             </div>
-                                            <div className="flex-1 text-center md:text-left">
+                                            <div className="flex-1 text-left">
                                                 <h3 className="text-xl font-bold">{edu.institution}</h3>
                                                 <p className="text-base-content/80">{edu.degree}</p>
                                                 <p className="text-sm text-base-content/60">{edu.period}</p>
                                             </div>
                                         </div>
                                         <span
-                                            className={`inline-block px-3 py-1 rounded-full text-sm font-semibold mx-auto md:mx-0 ${
+                                            className={`inline-block px-3 py-1 rounded-full text-sm font-semibold ${
                                                 edu.status === "completed"
                                                     ? "bg-primary/20 text-primary"
                                                     : "bg-yellow-500/20 text-yellow-500"
