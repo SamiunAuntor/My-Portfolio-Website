@@ -1,0 +1,128 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
+  }
+  
+  body {
+    @apply bg-base-100 text-base-content transition-colors duration-300;
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
+    margin: 0;
+    padding: 0;
+  }
+  
+  #root {
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+  
+  p:not([class*="text-center"]):not([class*="text-left"]):not([class*="text-justify"]) {
+    @apply text-center;
+  }
+  
+  @media (min-width: 768px) {
+    p:not([class*="text-center"]):not([class*="text-left"]):not([class*="text-justify"]):not([class*="md:text"]) {
+      text-align: justify;
+    }
+  }
+  
+  /* Allow left alignment when explicitly set */
+  .text-left p,
+  [class*="text-left"] p {
+    text-align: left;
+  }
+  
+  /* Allow center alignment when explicitly set on mobile - higher specificity */
+  p[class*="text-center"]:not([class*="md:text-justify"]),
+  p.text-center:not(.md\:text-justify) {
+    text-align: center !important;
+  }
+  
+  /* Allow justify alignment when explicitly set */
+  p[class*="text-justify"]:not([class*="md:text"]),
+  p.text-justify:not([class*="md:text"]) {
+    text-align: justify !important;
+  }
+  
+  @media (min-width: 768px) {
+    [class*="text-left"] p,
+    .text-left p {
+      text-align: left;
+    }
+    /* Allow responsive justify on desktop - must override center */
+    p[class*="md:text-justify"],
+    p.md\:text-justify {
+      text-align: justify !important;
+    }
+    /* Override section-container left alignment for centered/justified paragraphs */
+    .section-container p[class*="text-center"]:not([class*="md:text-justify"]),
+    .section-container p.text-center:not(.md\:text-justify) {
+      text-align: center !important;
+    }
+    .section-container p[class*="md:text-justify"],
+    .section-container p.md\:text-justify {
+      text-align: justify !important;
+    }
+  }
+  
+  /* Mobile: ensure center alignment for text-center class */
+  @media (max-width: 767px) {
+    p[class*="text-center"],
+    p.text-center {
+      text-align: center !important;
+    }
+  }
+}
+
+@layer utilities {
+  .glass-effect {
+    @apply bg-base-100/80 backdrop-blur-md border border-base-300/50;
+  }
+  
+  .section-container {
+    @apply w-full max-w-7xl mx-auto py-[3.75rem];
+    box-sizing: border-box;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    text-align: center;
+  }
+  
+  @media (min-width: 768px) {
+    .section-container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+  
+  /* Reset text-align for all children except title */
+  .section-container > *:not(.section-title) {
+    text-align: left;
+  }
+  
+  .section-title {
+    @apply text-4xl md:text-5xl font-bold mb-4;
+    display: inline-block;
+    width: auto;
+  }
+  
+  .section-title::after {
+    content: '';
+    @apply block mt-3 h-2 bg-primary rounded-full;
+    width: 100%;
+    margin-bottom: 3rem;
+  }
+}
+
