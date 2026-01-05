@@ -1,8 +1,9 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { Mail, Phone, MapPin, Send, MessageCircle } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Swal from "sweetalert2";
+import emailjs from "@emailjs/browser";
 
 const Contact = () => {
     const { ref, inView } = useInView({
@@ -16,16 +17,97 @@ const Contact = () => {
         message: "",
     });
 
-    const handleSubmit = (e) => {
+    const [isSubmitting, setIsSubmitting] = useState(false);
+
+    // EmailJS Configuration - loaded from .env file
+    const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+    // Initialize EmailJS
+    useEffect(() => {
+        if (EMAILJS_PUBLIC_KEY) {
+            emailjs.init(EMAILJS_PUBLIC_KEY);
+        }
+    }, [EMAILJS_PUBLIC_KEY]);
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        Swal.fire({
-            icon: "success",
-            title: "Message Sent!",
-            text: "Thank you for your message! I'll get back to you soon.",
-            confirmButtonColor: "#10b981",
-            confirmButtonText: "OK",
-        });
-        setFormData({ email: "", subject: "", message: "" });
+        
+        // Check if EmailJS is configured
+        if (!EMAILJS_TEMPLATE_ID || !EMAILJS_PUBLIC_KEY || !EMAILJS_SERVICE_ID) {
+
+            Swal.fire({
+                icon: "error",
+                title: "Configuration Error",
+                text: "EmailJS is not properly configured. Please check your .env file and restart the dev server.",
+                confirmButtonColor: "#10b981",
+                confirmButtonText: "OK",
+            });
+            return;
+        }
+
+        setIsSubmitting(true);
+
+        try {
+            // Format a complete message with all fields - this ensures you get all info even if template only shows message
+            const completeMessage = `📧 From: ${formData.email}
+📌 Subject: ${formData.subject}
+
+💬 Message:
+${formData.message}
+
+---
+You can reply directly to: ${formData.email}`;
+
+            // Send email using EmailJS
+            await emailjs.send(
+                EMAILJS_SERVICE_ID,
+                EMAILJS_TEMPLATE_ID,
+                {
+                    from_email: formData.email,
+                    from_name: formData.email.split('@')[0], // Extract name from email
+                    reply_to: formData.email, // For easy reply
+                    subject: `Portfolio Contact: ${formData.subject}`, // Include subject in email subject line
+                    message: completeMessage, // Complete message with all fields
+                    // Individual fields for template flexibility
+                    user_email: formData.email,
+                    user_subject: formData.subject,
+                    user_message: formData.message,
+                }
+            );
+
+            Swal.fire({
+                icon: "success",
+                title: "Message Sent!",
+                text: "Thank you for your message! I'll get back to you soon.",
+                confirmButtonColor: "#10b981",
+                confirmButtonText: "OK",
+            });
+            setFormData({ email: "", subject: "", message: "" });
+        } catch (error) {
+
+
+            let errorMessage = "Something went wrong. Please try again later or contact me directly.";
+            
+            if (error.text) {
+                errorMessage = error.text;
+            } else if (error.status === 404) {
+                errorMessage = "Template or Service not found. Please verify your EmailJS configuration in the dashboard.";
+            } else if (error.status === 400) {
+                errorMessage = "Invalid request. Please check your EmailJS template variables.";
+            }
+            
+            Swal.fire({
+                icon: "error",
+                title: "Failed to Send",
+                text: errorMessage,
+                confirmButtonColor: "#10b981",
+                confirmButtonText: "OK",
+            });
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     const handleChange = (e) => {
@@ -182,12 +264,22 @@ const Contact = () => {
                             </div>
                             <motion.button
                                 type="submit"
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
-                                className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-primary text-white rounded-lg font-semibold hover:bg-primary-dark transition-colors"
+                                disabled={isSubmitting}
+                                whileHover={!isSubmitting ? { scale: 1.05 } : {}}
+                                whileTap={!isSubmitting ? { scale: 0.95 } : {}}
+                                className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-primary text-white rounded-lg font-semibold hover:bg-primary-dark transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                             >
-                                <Send className="w-5 h-5" />
-                                Send Message
+                                {isSubmitting ? (
+                                    <>
+                                        <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                                        Sending...
+                                    </>
+                                ) : (
+                                    <>
+                                        <Send className="w-5 h-5" />
+                                        Send Message
+                                    </>
+                                )}
                             </motion.button>
                         </form>
                     </motion.div>

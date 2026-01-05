@@ -10,6 +10,8 @@ A modern, responsive single-page portfolio website built with React, Vite, Tailw
 - **Glass Effect Navbar** - Modern glassmorphism design
 - **Smooth Scrolling** - Seamless navigation between sections
 - **Interactive Components** - Accordion dropdowns, hover effects, and more
+- **Contact Form** - Functional email contact form powered by EmailJS
+- **Email Notifications** - Receive contact form submissions directly to your email
 
 ## 🛠️ Tech Stack
 
@@ -21,6 +23,8 @@ A modern, responsive single-page portfolio website built with React, Vite, Tailw
 - **Lucide React** - Icon library
 - **React Router DOM** - Routing
 - **React Intersection Observer** - Scroll animations
+- **EmailJS** - Email service for contact form
+- **SweetAlert2** - Beautiful alert notifications
 
 ## 📁 Project Structure
 
@@ -64,7 +68,7 @@ portfolio-website/
 4. **Services** - Services offered
 5. **Education** - Educational timeline with roadmap design
 6. **Projects** - Portfolio projects with live links and GitHub repos
-7. **Contact** - Contact form and information
+7. **Contact** - Functional contact form with EmailJS integration and contact information
 8. **Footer** - Footer with links and social media
 
 ## 🚀 Getting Started
@@ -82,12 +86,28 @@ portfolio-website/
    npm install --legacy-peer-deps
    ```
 
-3. Start the development server:
+3. **Set up Environment Variables:**
+   
+   Create a `.env` file in the root directory with your EmailJS credentials:
+   ```env
+   VITE_EMAILJS_SERVICE_ID=your_service_id
+   VITE_EMAILJS_TEMPLATE_ID=your_template_id
+   VITE_EMAILJS_PUBLIC_KEY=your_public_key
+   ```
+   
+   To get your EmailJS credentials:
+   1. Sign up at [EmailJS](https://www.emailjs.com/)
+   2. Create an email service
+   3. Create an email template
+   4. Get your Public Key from the Integration page
+   5. Add the credentials to your `.env` file
+
+4. Start the development server:
    ```bash
    npm run dev
    ```
 
-4. Open your browser and navigate to `http://localhost:5173`
+5. Open your browser and navigate to `http://localhost:5173`
 
 ### Build for Production
 
@@ -96,6 +116,37 @@ npm run build
 ```
 
 The production build will be in the `dist` folder.
+
+### Deployment
+
+#### Environment Variables for Production
+
+Make sure to set the following environment variables in your hosting platform:
+
+- `VITE_EMAILJS_SERVICE_ID`
+- `VITE_EMAILJS_TEMPLATE_ID`
+- `VITE_EMAILJS_PUBLIC_KEY`
+
+**Popular Hosting Platforms:**
+- **Vercel**: Add environment variables in Project Settings → Environment Variables
+- **Netlify**: Add environment variables in Site Settings → Build & Deploy → Environment
+- **GitHub Pages**: Use GitHub Secrets (requires build workflow)
+
+#### EmailJS Template Setup
+
+For the contact form to work properly, configure your EmailJS template to include:
+
+**Email Subject:**
+```
+{{subject}}
+```
+
+**Email Body:**
+```
+{{message}}
+```
+
+The `message` field contains all form data (email, subject, and message) formatted for easy reading.
 
 ## 🎯 Customization
 
@@ -121,7 +172,25 @@ Update the content in respective component files:
 - `src/Components/Skills.jsx` - Skills list
 - `src/Components/Projects.jsx` - Project details
 - `src/Components/Education.jsx` - Education history
-- `src/Components/Contact.jsx` - Contact information
+- `src/Components/Contact.jsx` - Contact information and form configuration
+
+### EmailJS Configuration
+
+The contact form uses EmailJS to send emails. To configure:
+
+1. Update your EmailJS credentials in the `.env` file
+2. Configure your EmailJS template to use:
+   - `{{subject}}` for the email subject
+   - `{{message}}` for the email body (contains all form fields)
+   - `{{reply_to}}` for reply-to address
+   - `{{user_email}}`, `{{user_subject}}`, `{{user_message}}` for individual fields
+
+## 🔒 Security Notes
+
+- Never commit your `.env` file to version control
+- The `.env` file is already included in `.gitignore`
+- Keep your EmailJS credentials secure
+- Use environment variables for all sensitive data in production
 
 ## 📝 License
 
