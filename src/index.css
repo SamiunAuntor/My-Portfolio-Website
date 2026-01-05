@@ -125,14 +125,43 @@
     text-align: left;
   }
   
-  /* Banner section - ensure proper alignment on desktop */
-  #banner .section-container > * {
-    text-align: left;
+  /* Banner section - completely override general rule to allow Tailwind classes */
+  #banner .section-container > *:not(.section-title) {
+    text-align: inherit;
   }
   
+  /* Banner grid and nested content - allow Tailwind classes to work */
+  #banner .section-container .grid,
+  #banner .section-container .grid > * {
+    text-align: inherit;
+  }
+  
+  /* Banner section - override all paragraph and div rules */
+  /* Mobile: center align banner content when text-center class is present */
   @media (max-width: 1023px) {
-    #banner .section-container > * {
-      text-align: center;
+    #banner [class*="text-center"],
+    #banner [class*="text-center"] > *,
+    #banner [class*="text-center"] *,
+    #banner [class*="text-center"] p,
+    #banner [class*="text-center"] div,
+    #banner [class*="text-center"] h1,
+    #banner [class*="text-center"] h2,
+    #banner [class*="text-center"] h3 {
+      text-align: center !important;
+    }
+  }
+  
+  /* Desktop: left align banner content when lg:text-left class is present */
+  @media (min-width: 1024px) {
+    #banner [class*="lg:text-left"],
+    #banner [class*="lg:text-left"] > *,
+    #banner [class*="lg:text-left"] *,
+    #banner [class*="lg:text-left"] p,
+    #banner [class*="lg:text-left"] div,
+    #banner [class*="lg:text-left"] h1,
+    #banner [class*="lg:text-left"] h2,
+    #banner [class*="lg:text-left"] h3 {
+      text-align: left !important;
     }
   }
   

@@ -27,7 +27,7 @@ const Banner = () => {
     return (
         <section id="banner" className="min-h-screen flex items-center justify-center pt-20 bg-base-100 w-full overflow-x-hidden">
             <div className="section-container">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center text-left">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                     {/* Mobile: Photo First, Desktop: Content First */}
                     {/* Avatar - Mobile First */}
                     <motion.div
@@ -83,7 +83,7 @@ const Banner = () => {
                             transition={{ delay: 0.5 }}
                             className="text-lg md:text-xl text-base-content/70"
                         >
-                            Student at IUT | Exploring System Design, Databases, Networking & Cloud Computing
+                            SWE Student at IUT | Exploring System Design, Databases, Networking & Cloud Computing
                         </motion.p>
 
                         {/* Download Resume Button and Social Links - Beside Each Other */}
