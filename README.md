@@ -2,6 +2,8 @@
 
 A modern, responsive single-page portfolio website built with React, Vite, Tailwind CSS, and Framer Motion.
 
+🌐 **Live Website:** [https://samiun-alim-auntor.pages.dev/](https://samiun-alim-auntor.pages.dev/)
+
 ## 🚀 Features
 
 - **Fully Responsive Design** - Optimized for mobile, tablet, laptop, and larger devices
@@ -200,9 +202,10 @@ This project is private and not licensed for public use.
 
 **Samiun Alim Auntor**
 
-- Email: samiunalimauntor@gmail.com
-- Phone: +8801988774499
-- GitHub: [@SamiunAuntor](https://github.com/SamiunAuntor)
+- 🌐 **Portfolio:** [https://samiun-alim-auntor.pages.dev/](https://samiun-alim-auntor.pages.dev/)
+- 📧 Email: samiunalimauntor@gmail.com
+- 📱 Phone: +8801988774499
+- 💻 GitHub: [@SamiunAuntor](https://github.com/SamiunAuntor)
 
 ---
 
