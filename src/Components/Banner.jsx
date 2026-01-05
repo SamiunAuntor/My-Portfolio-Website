@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Download, Github, Linkedin, Mail, Phone } from "lucide-react";
+import { Download, Github, Linkedin, Mail, Phone, ChevronDown } from "lucide-react";
 import avatar from "../assets/avatar.jpg";
 
 const Banner = () => {
@@ -17,10 +17,17 @@ const Banner = () => {
         link.click();
     };
 
+    const scrollToNext = () => {
+        const aboutSection = document.querySelector("#about");
+        if (aboutSection) {
+            aboutSection.scrollIntoView({ behavior: "smooth" });
+        }
+    };
+
     return (
         <section id="banner" className="min-h-screen flex items-center justify-center pt-20 bg-base-100 w-full overflow-x-hidden">
             <div className="section-container">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center text-left">
                     {/* Mobile: Photo First, Desktop: Content First */}
                     {/* Avatar - Mobile First */}
                     <motion.div
@@ -34,7 +41,7 @@ const Banner = () => {
                             transition={{ type: "spring", stiffness: 200, damping: 15 }}
                             className="relative"
                         >
-                            <div className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-primary shadow-2xl" style={{ boxShadow: '0 20px 60px rgba(16, 185, 129, 0.3), 0 0 40px rgba(16, 185, 129, 0.2)' }}>
+                            <div className="w-65 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-primary shadow-2xl" style={{ boxShadow: '0 20px 60px rgba(16, 185, 129, 0.3), 0 0 40px rgba(16, 185, 129, 0.2)' }}>
                                 <motion.img
                                     src={avatar}
                                     alt="Samiun Alim Auntor"
@@ -51,7 +58,7 @@ const Banner = () => {
                         initial={{ opacity: 0, x: -50 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8, delay: 0.2 }}
-                        className="space-y-6 order-2 lg:order-1 text-center md:text-left"
+                        className="space-y-6 order-2 lg:order-1 text-center lg:text-left lg:!text-left"
                     >
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
@@ -66,7 +73,7 @@ const Banner = () => {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.4 }}
-                            className="text-2xl md:text-3xl lg:text-4xl font-bold text-primary !text-center md:!text-left"
+                            className="text-2xl md:text-3xl lg:text-4xl font-bold text-primary"
                         >
                             Full Stack Developer ( MERN )
                         </motion.p>
@@ -74,7 +81,7 @@ const Banner = () => {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.5 }}
-                            className="text-lg md:text-xl text-base-content/70 !text-center md:!text-left"
+                            className="text-lg md:text-xl text-base-content/70"
                         >
                             Student at IUT | Exploring System Design, Databases, Networking & Cloud Computing
                         </motion.p>
@@ -84,7 +91,7 @@ const Banner = () => {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.6 }}
-                            className="flex items-center gap-4 flex-wrap justify-center md:justify-start"
+                            className="flex items-center gap-4 flex-wrap justify-center lg:justify-start"
                         >
                             <motion.button
                                 whileHover={{ scale: 1.05 }}
@@ -122,6 +129,24 @@ const Banner = () => {
                         </motion.div>
                     </motion.div>
                 </div>
+                
+                {/* Scroll Indicator */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 1, repeat: Infinity, repeatType: "reverse", duration: 1.5 }}
+                    className="flex flex-col items-center justify-center mt-12 lg:mt-16"
+                >
+                    <motion.button
+                        onClick={scrollToNext}
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.9 }}
+                        className="glass-effect px-6 py-3 rounded-full flex flex-col items-center gap-2 cursor-pointer group"
+                    >
+                        <span className="text-sm text-base-content/80 font-medium">Scroll Down</span>
+                        <ChevronDown className="w-5 h-5 text-primary group-hover:text-primary-dark transition-colors" />
+                    </motion.button>
+                </motion.div>
             </div>
         </section>
     );
