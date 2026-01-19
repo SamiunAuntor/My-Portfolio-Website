@@ -12,8 +12,8 @@ const Banner = () => {
 
     const downloadResume = () => {
         const link = document.createElement("a");
-        link.href = "/resume.pdf";
-        link.download = "Samiun_Alim_Auntor_Resume.pdf";
+        link.href = "/Samiun Alim's Resume.pdf";
+        link.download = "Samiun Alim's Resume.pdf";
         link.click();
     };
 
