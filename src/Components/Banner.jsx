@@ -10,12 +10,24 @@ const Banner = () => {
         { icon: Phone, href: "tel:+8801988774499", label: "Phone" },
     ];
 
+    // Mobile browsers often block programmatic downloads; open in a new tab there.
     const downloadResume = () => {
+        const resumeUrl = encodeURI("/Samiun Alim's Resume.pdf");
+        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+        if (isMobile) {
+            window.open(resumeUrl, "_blank", "noopener");
+            return;
+        }
+
         const link = document.createElement("a");
-        link.href = "/Samiun Alim's Resume.pdf";
+        link.href = resumeUrl;
         link.download = "Samiun Alim's Resume.pdf";
+        document.body.appendChild(link);
         link.click();
+        document.body.removeChild(link);
     };
+
 
     const scrollToNext = () => {
         const aboutSection = document.querySelector("#about");
