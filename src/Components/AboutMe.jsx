@@ -50,10 +50,7 @@ const AboutMe = () => {
                         className="space-y-6 text-lg text-base-content/90 order-1"
                     >
                         <p className="text-justify">
-                            I am a Software Engineering student at the Islamic University of Technology, dedicated to building robust and user-centric web applications. I am proficient in the MERN stack and now diving deep into Next.js, System Design, and Relational Databases to build scalable, real-world solutions. I thrive on the learning process, constantly refining my approach to clean code and efficient architecture.
-                        </p>
-                        <p className="text-justify">
-                            I am a Software Engineering student at the Islamic University of Technology, specializing in web development and building full-stack applications with the MERN stack. I am passionate about learning and creating practical solutions.
+                            I am a Software Engineering student at the Islamic University of Technology, dedicated to building robust and user-centric web applications. I am proficient in the MERN stack and now diving deep into Next.js, System Design, and Relational Databases to build scalable, real-world solutions. I thrive on the learning process, constantly refining my approach to clean code and efficient architecture. I am keen to learn and create practical solutions.
                         </p>
                     </motion.div>
 
