@@ -32,6 +32,7 @@ const Skills = () => {
         "CSS3": "bg-blue-500 dark:bg-blue-800/30 text-blue-50 dark:text-blue-300 border-blue-600 dark:border-blue-700/50",
         "React Router": "bg-pink-400 dark:bg-pink-900/30 text-pink-900 dark:text-pink-300 border-pink-500 dark:border-pink-700/50",
         "MySQL": "bg-blue-400 dark:bg-blue-900/30 text-blue-900 dark:text-blue-300 border-blue-500 dark:border-blue-700/50",
+        "PostgreSQL": "bg-sky-500 dark:bg-sky-900/30 text-sky-50 dark:text-sky-300 border-sky-600 dark:border-sky-700/50",
         "Prisma": "bg-indigo-400 dark:bg-indigo-900/30 text-indigo-900 dark:text-indigo-300 border-indigo-500 dark:border-indigo-700/50",
         "Firebase": "bg-orange-400 dark:bg-orange-800/30 text-orange-900 dark:text-orange-300 border-orange-500 dark:border-orange-700/50",
         "Docker": "bg-blue-500 dark:bg-blue-800/30 text-blue-50 dark:text-blue-300 border-blue-600 dark:border-blue-700/50",
@@ -44,13 +45,37 @@ const Skills = () => {
         },
         {
             title: "Backend & Database",
-            skills: ["NodeJS", "Express.js", "MongoDB", "MySQL", "Prisma", "Firebase"],
+            skills: ["NodeJS", "Express.js", "MongoDB", "MySQL", "PostgreSQL", "Prisma", "Firebase"],
         },
         {
             title: "Languages & Tools",
             skills: ["C", "C++", "Java", "TypeScript", "Docker", "Git", "GitHub"],
         },
     ];
+
+    const skillIcons = {
+        "React": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+        "Next.js": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
+        "TailwindCSS": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg",
+        "React Router": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/reactrouter/reactrouter-original.svg",
+        "HTML5": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
+        "CSS3": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
+        "JS": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+        "NodeJS": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+        "Express.js": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg",
+        "MongoDB": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
+        "MySQL": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
+        "PostgreSQL": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
+        "Prisma": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/prisma/prisma-original.svg",
+        "Firebase": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg",
+        "C": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg",
+        "C++": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg",
+        "Java": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
+        "TypeScript": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
+        "Docker": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
+        "Git": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
+        "GitHub": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
+    };
 
     const getSkillColor = (skill) => {
         return skillColors[skill] || "bg-gray-500 dark:bg-gray-700/30 text-gray-900 dark:text-gray-300 border-gray-600 dark:border-gray-600/50";
@@ -91,8 +116,16 @@ const Skills = () => {
                                             delay: categoryIndex * 0.1 + skillIndex * 0.05,
                                         }}
                                         whileHover={{ scale: 1.05, y: -2 }}
-                                        className={`px-4 py-2 rounded-lg text-sm font-medium border transition-all cursor-default shadow-md ${getSkillColor(skill)} hover:scale-105`}
+                                        className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium border transition-all cursor-default shadow-md ${getSkillColor(skill)} hover:scale-105`}
                                     >
+                                        <span className="flex h-[27px] w-[27px] items-center justify-center rounded-full bg-white/85 p-0.5 shadow-sm">
+                                            <img
+                                                src={skillIcons[skill]}
+                                                alt={`${skill} icon`}
+                                                className="h-5 w-5 object-contain"
+                                                loading="lazy"
+                                            />
+                                        </span>
                                         {skill}
                                     </motion.span>
                                 ))}
