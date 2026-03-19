@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { Code, Server, Database, Rocket, Cloud, Settings, Monitor } from "lucide-react";
+import { Code, Server, Database, Rocket, Cloud, Monitor, LayoutTemplate, Layers3, ShieldCheck, PanelsTopLeft } from "lucide-react";
 
 const Services = () => {
     const { ref, inView } = useInView({
@@ -25,18 +25,33 @@ const Services = () => {
             description: "Designing robust server-side architectures with Node.js, Express.js, and RESTful APIs.",
         },
         {
-            icon: Database,
-            title: "Database Design",
-            description: "Designing and implementing efficient database schemas with MongoDB, MySQL, and Prisma.",
+            icon: LayoutTemplate,
+            title: "Landing Page Development",
+            description: "Building responsive, conversion-focused landing pages that present products clearly and create a strong first impression for clients and users.",
         },
         {
-            icon: Cloud,
-            title: "Firebase Integration",
-            description: "Implementing authentication, real-time databases, and cloud functions with Firebase.",
+            icon: Layers3,
+            title: "SaaS Product Development",
+            description: "Developing scalable SaaS applications with complete frontend and backend systems, focusing on usability, performance, and maintainable architecture.",
+        },
+        {
+            icon: PanelsTopLeft,
+            title: "Admin Panel Development",
+            description: "Creating practical admin dashboards and control panels for managing users, content, workflows, analytics, and operational tasks in real-world products.",
+        },
+        {
+            icon: ShieldCheck,
+            title: "Authentication with RBAC",
+            description: "Implementing secure authentication and role-based access control systems for apps that need protected routes, user roles, and permission-based experiences.",
+        },
+        {
+            icon: Database,
+            title: "Database Design",
+            description: "Designing efficient database schemas and ERDs with MongoDB, MySQL, PostgreSQL, and Prisma for scalable and well-structured applications.",
         },
         {
             icon: Rocket,
-            title: "Deployment",
+            title: "Deployement",
             description: "Deploying applications on Vercel, Firebase, Cloudflare, and Netlify for optimal performance and scalability.",
         },
     ];
