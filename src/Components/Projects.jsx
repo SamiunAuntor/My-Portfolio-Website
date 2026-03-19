@@ -14,32 +14,76 @@ const Projects = () => {
 
     const projects = [
         {
+            name: "GhorBari",
+            subtitle: "Property Rental & Listing Platform",
+            description: "A full-stack property platform for buying, renting, and managing listings in Bangladesh with real-time communication, AI-assisted features, and a trust-focused admin system.",
+            highlights: [
+                "Geo-location based property search by Division, District, and Upazila",
+                "Real-time chat with Socket.io for instant buyer-owner communication",
+                "AI-powered property descriptions and AI-assisted property discovery",
+                "NID-based verification system for stronger trust and safer interactions",
+                "Email and in-app notifications across application and deal lifecycle events",
+                "Admin dashboard with user management, moderation, and analytics",
+                "Property comparison, wishlist management, and detailed listing experiences",
+            ],
+            techStack: ["React", "Vite", "Node.js", "Express.js", "MongoDB", "Mongoose", "Firebase", "Firebase Admin", "Socket.io", "Tailwind CSS", "Axios", "Node-cron", "Nodemailer", "Leaflet", "Groq API"],
+            liveLink: "https://ghor-bari-2c93a.web.app/",
+            githubLink: "https://github.com/khandakeraliariyan/GHOR_BARI",
+            image: ghorBari,
+        },
+        {
             name: "Blood Bridge",
-            description: "Blood Bridge is a comprehensive <strong>MERN-stack</strong> application connecting blood donors with recipients. Features include secure <strong>Firebase authentication</strong>, complete donation lifecycle management, and location-based donor search using <strong>geolocation</strong> services. Key highlights include <strong>real-time</strong> notifications for urgent requests, donor eligibility tracking, donation history management, and an advanced <strong>analytics</strong> dashboard. Built with <strong>Express.js</strong> backend, <strong>MongoDB</strong> for data persistence, and <strong>React</strong> frontend. Users can create profiles, search donors by blood type and location, manage requests, and track contribution history with verified profiles and secure communication.",
+            subtitle: "Blood Donation Management Platform",
+            description: "A full-stack blood donation platform that connects donors and recipients with role-based workflows, request management, donor search, and dashboard-driven operations.",
+            highlights: [
+                "Firebase authentication with role-based access for Admin, Volunteer, and Donor users",
+                "Blood donation request management with status tracking from pending to completion",
+                "Donor search by blood group, district, and upazila with PDF export support",
+                "Admin user management with role updates and block or unblock controls",
+                "Role-specific dashboards with statistics cards, analytics charts, and recent requests",
+                "Funding system with contribution tracking and Stripe-ready integration flow",
+                "Responsive UI with toast notifications, SweetAlert confirmations, and form validation",
+            ],
+            techStack: ["React", "Vite", "Node.js", "Express.js", "MongoDB", "Firebase", "JWT", "Tailwind CSS", "DaisyUI", "Recharts"],
             liveLink: "https://bloodbridge-4c0c0.web.app/",
             githubLink: "https://github.com/SamiunAuntor/PH-Assignment-11_Blood-Bridge_Client",
             image: bloodBridge,
         },
         {
-            name: "Bill Wise",
-            description: "Bill Wise is a <strong>MERN-stack</strong> utility management platform for tracking monthly household expenses. Features dual-layer <strong>dashboards</strong> for members and administrators, enabling transparent financial management. Key features include expense categorization, automated bill calculations, <strong>PDF export</strong> functionality, and interactive <strong>charts</strong> for visual analysis. Supports multiple payment methods, expense splitting, and automated reminders. Built with <strong>React</strong> frontend, <strong>Node.js</strong> and <strong>Express.js</strong> backend, and <strong>MongoDB</strong> storage. Users can track utility bills, manage subscriptions, generate reports, and maintain complete financial history with role-based access control and detailed <strong>analytics</strong>.",
-            liveLink: "https://billwise-375a5.web.app/",
-            githubLink: "https://github.com/SamiunAuntor/PH-Assignment-10_Bill-Wise_Client",
-            image: billWise,
-        },
-        {
             name: "PawCare",
-            description: "PawCare is a pet wellness <strong>Single Page Application</strong> built with <strong>React 19</strong> and <strong>Vite 7</strong>, focusing on comprehensive pet management and veterinary services. Features an extensive service catalog covering grooming, health checkups, vaccinations, and emergency care. Key highlights include secure <strong>Firebase authentication</strong>, professional veterinary profiles with ratings, appointment booking system, and pet health record management. Built with modern <strong>React hooks</strong> and <strong>context API</strong>. Users can browse services, book appointments, maintain pet profiles, track vaccination schedules, and access consultations with intuitive navigation and <strong>real-time</strong> availability updates.",
+            subtitle: "Pet Care Services Platform",
+            description: "A pet care platform that helps users explore services, connect with veterinarians, and manage service bookings through a responsive and user-friendly interface.",
+            highlights: [
+                "Single-page application with smooth navigation powered by React Router",
+                "Authentication system with email and password login, Google sign-in, and password reset",
+                "Protected routes for authenticated-only user flows",
+                "User profile management for viewing and updating account details",
+                "Service exploration with detailed pages and booking form submission",
+                "Expert veterinarian section with responsive, animation-driven UI components",
+                "Toast notifications and mobile-friendly design across the full experience",
+            ],
+            techStack: ["React", "Vite", "React Router", "Firebase", "Tailwind CSS", "DaisyUI", "Swiper.js", "React Fast Marquee", "Animate.css", "React Hot Toast"],
             liveLink: "https://pet-care-e7a9f.web.app/",
             githubLink: "https://github.com/SamiunAuntor/PH-Assignment-9_Pet-Care",
             image: petCare,
         },
         {
-            name: "GhorBari",
-            description: "GhorBari is a high-trust real estate marketplace built on <strong>MERN stack</strong>, facilitating secure property transactions with advanced fraud prevention. Features map-based property discovery, <strong>NID-based</strong> identity verification, <strong>AI-powered</strong> fair rent estimation, and <strong>real-time</strong> chat system. Includes comprehensive trust rating system, secure payment processing, property galleries, detailed listings, and advanced search filters. Built with <strong>MongoDB</strong>, <strong>Express.js</strong>, and <strong>React</strong>. Users can discover properties, verify identities, estimate rents, communicate directly, compare properties, save searches, and receive notifications for new listings with complete documentation management.",
-            liveLink: null,
-            githubLink: "https://github.com/khandakeraliariyan/GHOR_BARI",
-            image: ghorBari,
+            name: "Bill Wise",
+            subtitle: "Utility Bill Management System",
+            description: "A secure MERN stack utility bill management system for viewing, updating, filtering, and managing monthly bills with dashboard workflows and reporting features.",
+            highlights: [
+                "Secure authentication with email and password login plus Google OAuth support",
+                "Admin dashboard for managing users, bills, and analytics workflows",
+                "User dashboard for personal bill management and public bill submission",
+                "Bill management for Electricity, Gas, Water, and Internet categories",
+                "PDF report download for paid bills using jsPDF and AutoTable",
+                "Category filtering, charts, and secure API requests with Axios interceptors",
+                "Responsive UI with theme toggle, notifications, loading states, and extra info pages",
+            ],
+            techStack: ["React", "Vite", "Node.js", "Express.js", "MongoDB", "Firebase", "Tailwind CSS", "DaisyUI", "Axios", "Recharts"],
+            liveLink: "https://billwise-375a5.web.app/",
+            githubLink: "https://github.com/SamiunAuntor/PH-Assignment-10_Bill-Wise_Client",
+            image: billWise,
         },
     ];
 
@@ -82,14 +126,57 @@ const Projects = () => {
                                 <h3 className="text-2xl font-bold text-center">
                                     {project.name}
                                 </h3>
+                                {project.subtitle && (
+                                    <p className="mt-2 text-center text-sm font-semibold uppercase tracking-[0.12em] text-primary">
+                                        {project.subtitle}
+                                    </p>
+                                )}
                             </div>
 
                             {/* Project Content */}
                             <div className="p-6 flex flex-col flex-grow">
-                                <p 
-                                    className="text-base-content/80 mb-4 text-sm leading-relaxed text-justify flex-grow"
-                                    dangerouslySetInnerHTML={{ __html: project.description }}
-                                />
+                                {project.highlights ? (
+                                    <div className="flex flex-col flex-grow">
+                                        <p className="text-base-content/80 mb-5 text-sm leading-relaxed text-justify">
+                                            {project.description}
+                                        </p>
+
+                                        <div className="mb-5">
+                                            <h4 className="mb-3 text-sm font-bold uppercase tracking-[0.12em] text-primary">
+                                                Key Highlights
+                                            </h4>
+                                            <ul className="space-y-2 text-sm text-base-content/80">
+                                                {project.highlights.map((highlight) => (
+                                                    <li key={highlight} className="flex items-start gap-2">
+                                                        <span className="mt-1.5 h-2 w-2 rounded-full bg-primary"></span>
+                                                        <span>{highlight}</span>
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        </div>
+
+                                        <div className="mb-5">
+                                            <h4 className="mb-3 text-sm font-bold uppercase tracking-[0.12em] text-primary">
+                                                Tech Stack
+                                            </h4>
+                                            <div className="flex flex-wrap gap-2">
+                                                {project.techStack.map((tech) => (
+                                                    <span
+                                                        key={tech}
+                                                        className="rounded-full bg-base-200 px-3 py-1 text-xs font-semibold text-base-content/80"
+                                                    >
+                                                        {tech}
+                                                    </span>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    </div>
+                                ) : (
+                                    <p 
+                                        className="text-base-content/80 mb-4 text-sm leading-relaxed text-justify flex-grow"
+                                        dangerouslySetInnerHTML={{ __html: project.description }}
+                                    />
+                                )}
 
                                 {/* Buttons */}
                                 <div className="flex gap-3 mt-auto">
