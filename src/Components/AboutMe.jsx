@@ -13,15 +13,19 @@ const AboutMe = () => {
     const accordionItems = [
         {
             title: "Technical Expertise",
-            content: "Full-Stack Development with MERN (MongoDB, Express, React, Node.js), Firebase Authentication, REST APIs, and database design. Experienced in building responsive, user-friendly web applications.",
+            content: "I build full-stack web applications with the MERN stack and Next.js, with practical experience in TypeScript, Prisma, PostgreSQL, MySQL, Firebase, and REST API development. My focus is on building responsive interfaces, secure backend systems, and maintainable application architecture.",
         },
         {
-            title: "Achievements",
-            content: "Completed multiple academic and personal projects involving full-stack web apps; expanding backend and database skills for scalable SaaS applications. Hands-on experience with Git/GitHub and deployment workflows.",
+            title: "What I Am Building",
+            content: "My recent work includes GhorBari, a property listing and rental platform, and WarrantyWallet, a warranty document keeper with notification features. These projects reflect my focus on building practical products with real user flows, data handling, and complete frontend-to-backend integration.",
         },
         {
-            title: "Passion & Goals",
-            content: "Motivated by learning and building impactful solutions. Exploring system design, backend architecture, and database management to grow into a well-rounded full-stack developer.",
+            title: "Current Focus",
+            content: "Right now I am actively building more projects and strengthening my overall development skills. I am working on improving how I design, structure, and ship complete applications so my work becomes more reliable, scalable, and production-ready over time.",
+        },
+        {
+            title: "Opportunities",
+            content: "I am open to job, internship, and freelance opportunities where I can contribute to real-world products and keep growing through meaningful development work. I am especially interested in roles where I can take ownership, solve practical problems, and deliver high-quality solutions.",
         },
     ];
 
@@ -50,7 +54,13 @@ const AboutMe = () => {
                         className="space-y-6 text-lg text-base-content/90 order-1"
                     >
                         <p className="text-justify">
-                            I am a Software Engineering student at the Islamic University of Technology, dedicated to building robust and user-centric web applications. I am proficient in the MERN stack and now diving deep into Next.js, System Design, and Relational Databases to build scalable, real-world solutions. I thrive on the learning process, constantly refining my approach to clean code and efficient architecture. I am keen to learn and create practical solutions.
+                            I build scalable, production-ready web applications using the MERN stack and Next.js, focusing on clean architecture, performance, and user experience. I develop complete systems-from responsive frontend interfaces to secure backend APIs, database design (SQL & NoSQL), and deployment.
+                        </p>
+                        <p className="text-justify">
+                            I have hands-on experience building real-world applications, including landing pages, authentication systems, role-based access control, real-time features, automated workflows, and admin dashboards. I focus on writing maintainable code and designing systems that are reliable, efficient, and easy to scale.
+                        </p>
+                        <p className="text-justify">
+                            Currently, open to job and freelance opportunities where I can contribute to real-world products and deliver high-quality solutions.
                         </p>
                     </motion.div>
 
