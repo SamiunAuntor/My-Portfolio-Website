@@ -5,6 +5,7 @@ import bloodBridge from "../assets/blood-bridge.png";
 import billWise from "../assets/bill-wise.png";
 import petCare from "../assets/pet-care.png";
 import ghorBari from "../assets/ghor-bari.png";
+import warrantyWallet from "../assets/warranty-wallet.png";
 
 const Projects = () => {
     const { ref, inView } = useInView({
@@ -30,6 +31,24 @@ const Projects = () => {
             liveLink: "https://ghor-bari-2c93a.web.app/",
             githubLink: "https://github.com/khandakeraliariyan/GHOR_BARI",
             image: ghorBari,
+        },
+        {
+            name: "WarrantyWallet",
+            subtitle: "Smart Warranty & Claim Reminder System",
+            description: "A web platform for managing product warranties, securing purchase documents, and sending intelligent reminders before benefits expire, backed by admin management and privacy-focused workflows.",
+            highlights: [
+                "Firebase authentication with Google OAuth and role-based access for User and Admin roles",
+                "Product and warranty management with CRUD operations, auto-calculated expiry dates, and status tracking",
+                "Invoice management with up to 4 image uploads, ImageBB storage, preview modal, and downloads",
+                "Dashboard analytics with platform stats, product status breakdowns, charts, and latest product insights",
+                "Real-time search and filter support across product name, brand, category, status, and email reminder state",
+                "Automated email reminder system with daily cron jobs, audit logs, and one-time expiry notifications",
+                "Admin tools for user management, account status control, platform analytics, and homepage statistics",
+            ],
+            techStack: ["React 19", "React Router DOM 7", "TanStack React Query", "Axios", "Firebase", "Node.js", "Express.js", "MongoDB", "Firebase Admin", "Tailwind CSS", "Chart.js", "Nodemailer", "Node-cron", "ImageBB"],
+            liveLink: "https://warranty-wallet-ad400.web.app",
+            githubLink: "https://github.com/SamiunAuntor/Warranty-Wallet",
+            image: warrantyWallet,
         },
         {
             name: "Blood Bridge",
