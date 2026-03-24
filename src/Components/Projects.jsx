@@ -6,6 +6,7 @@ import billWise from "../assets/bill-wise.png";
 import petCare from "../assets/pet-care.png";
 import ghorBari from "../assets/ghor-bari.png";
 import warrantyWallet from "../assets/warranty-wallet.png";
+import shopHub from "../assets/shop-hub.png";
 
 const Projects = () => {
     const { ref, inView } = useInView({
@@ -45,7 +46,7 @@ const Projects = () => {
                 "Automated email reminder system with daily cron jobs, audit logs, and one-time expiry notifications",
                 "Admin tools for user management, account status control, platform analytics, and homepage statistics",
             ],
-            techStack: ["React 19", "React Router DOM 7", "TanStack React Query", "Axios", "Firebase", "Node.js", "Express.js", "MongoDB", "Firebase Admin", "Tailwind CSS", "Chart.js", "Nodemailer", "Node-cron", "ImageBB"],
+            techStack: ["React", "React Router", "TanStack Query", "Axios", "Firebase", "Node.js", "Express.js", "MongoDB", "Firebase Admin", "Tailwind CSS", "Chart.js", "Nodemailer", "Node-cron", "ImageBB"],
             liveLink: "https://warranty-wallet-ad400.web.app",
             githubLink: "https://github.com/SamiunAuntor/Warranty-Wallet",
             image: warrantyWallet,
@@ -103,6 +104,24 @@ const Projects = () => {
             liveLink: "https://billwise-375a5.web.app/",
             githubLink: "https://github.com/SamiunAuntor/PH-Assignment-10_Bill-Wise_Client",
             image: billWise,
+        },
+        {
+            name: "ShopHub",
+            subtitle: "Next.js Product Catalog Application",
+            description: "A modern Next.js product catalog app with public product browsing, protected admin product creation, and a dummy auth system built around App Router workflows.",
+            highlights: [
+                "Landing page with 8 sections, including hero slider, stats, categories, testimonials, FAQ, and CTA",
+                "Dummy auth system with hardcoded credentials and cookie-based session handling",
+                "Protected add-product route using middleware and redirect-based access control",
+                "Public product listing with search, category filtering, and client-side pagination",
+                "Product details page with formatted pricing and responsive product presentation",
+                "Next.js API routes reading and writing product data from a local JSON source",
+                "Responsive UI with SweetAlert2, mobile navigation, and consistent product-focused design",
+            ],
+            techStack: ["Next.js", "React", "App Router", "Tailwind CSS", "SweetAlert2", "Lucide React", "Next.js API Routes", "JSON Storage", "Google Fonts"],
+            liveLink: "https://shop-hub-theta-bay.vercel.app/",
+            githubLink: null,
+            image: shopHub,
         },
     ];
 
@@ -212,21 +231,23 @@ const Projects = () => {
                                             View Live
                                         </motion.a>
                                     )}
-                                    <motion.a
-                                        href={project.githubLink}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        whileHover={{ scale: 1.05 }}
-                                        whileTap={{ scale: 0.95 }}
-                                        className={`flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-lg font-semibold transition-colors ${
-                                            project.liveLink
-                                                ? "bg-base-200 text-primary hover:bg-base-300"
-                                                : "bg-primary text-white hover:bg-primary-dark"
-                                        }`}
-                                    >
-                                        <Github className="w-4 h-4" />
-                                        GitHub
-                                    </motion.a>
+                                    {project.githubLink && (
+                                        <motion.a
+                                            href={project.githubLink}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            whileHover={{ scale: 1.05 }}
+                                            whileTap={{ scale: 0.95 }}
+                                            className={`flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-lg font-semibold transition-colors ${
+                                                project.liveLink
+                                                    ? "bg-base-200 text-primary hover:bg-base-300"
+                                                    : "bg-primary text-white hover:bg-primary-dark"
+                                            }`}
+                                        >
+                                            <Github className="w-4 h-4" />
+                                            GitHub
+                                        </motion.a>
+                                    )}
                                 </div>
                             </div>
                         </motion.div>
